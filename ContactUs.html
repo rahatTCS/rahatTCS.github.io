@@ -26,17 +26,19 @@
       -ms-user-select: none;
       user-select: none;
     }
-    .wrapper{
+  .wrapper{
   position: absolute;
   top: 50%;
   left: 50%;
+
   transform: translate(-50%,-50%);
   max-width: 350px;
   width: 100%;
-  background: #fff;
+  background: skyblue;
   padding: 25px;
   border-radius: 5px;
-  box-shadow: 4px 4px 2px rgba(254,236,164,1); 
+  color:navy;
+  
 }
 
 .wrapper h2{
@@ -47,6 +49,16 @@
   color: #332902;
 }
 
+#error_message{
+  margin-bottom: 20px;
+  background:navy;
+  padding: 0px;
+  text-align: center;
+  font-size: 14px;
+  transition: all 0.5s ease;
+  color: black;
+}
+
  
     </style>
     <link href="mystyle.css" rel="stylesheet">
@@ -55,7 +67,7 @@
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="masthead mb-auto">
     <div class="inner">
-      <h3 class="masthead-brand">Contact Us</h3>
+      <h3 class="masthead-brand">Contact Me</h3>
       <nav class="nav nav-masthead justify-content-center">
         <a class="nav-link active" href="Home.html">Home</a>
         <a class="nav-link" href="About.html">About</a>
@@ -78,13 +90,13 @@
 			error_message.style.padding = "10px";
   
 			var text;
-			if(name.length < "")
+			if(name.length <5)
 			{
 				text = "Please Enter valid Name";
 				error_message.innerHTML = text;
 				return false;
 			}
-			if(subject.length < "")
+			if(subject.length <5)
 			{
 				text = "Please Enter Correct Subject";
 				error_message.innerHTML = text;
@@ -118,7 +130,7 @@
 
 
 <div class="wrapper">
-  <h2>Contact Me</h2>
+  <h3>Contact Me</h3>
   <div id="error_message">
      
   </div>
@@ -139,7 +151,9 @@
         <textarea placeholder="Message" id="message"></textarea>
     </div>
     <div class="btn">
-        <input type="submit" value="Submit">
+       <button class="btn btn-success">Submit</button>
+       <button type="button" class="btn btn-danger"  onclick="myCancel();" style="margin-left: 5px;">Cancel</button>
+
     </div>
   </form>
 </div>
@@ -150,7 +164,11 @@
     <h1 class="cover-heading">Cover your page.</h1>
     <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
     <p class="lead"> -->
-     
+   <script>
+      function myCancel() {
+    document.getElementById("myform").reset();
+}
+   </script> 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
